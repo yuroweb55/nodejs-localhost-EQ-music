@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video EQ</title>
+  <link href="bootstrap@5.0.0.css" rel="stylesheet">
+  <style>
+    body {
+
+      margin: 20px;
+    }
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+    }
+    .slider {
+      margin: 10px 0;
+      width: 100%;
+    }
+    video {
+      max-width: 100%;
+    }
+    .rrrs {
+    overflow: auto;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+.col-yta{color:#fff;background-color:#000;border:solid #999 .5px}.col-yta:hover{background-color:#333}
+
+#vuMeter {
+      width: 100%;
+      height: 50px;
+      background-color: #ddd;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #vuMeter .bar {
+      height: 50%;
+      width: 0;
+    }
+  </style>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    
+    
+    <!-- วิดีโอ -->
+    <div style="text-align: center;">
+      <video id="video" width="640" height="360" controls>
+        <source type="video/mp4">
+        Your browser does not support the video tag.
+      </video> 
+      <div style="padding-top: 20px;"></div>   
+      <div style="padding-top: 20px;">
+        <p id="vdo-name"></p>
+        <button id="buttonplkk" class="btn btn-success">เล่น</button>
+        <p id="timee"></p>
+      </div>
+      <div style="padding-top: 20px;">
+        <label>เสียง</label><br>
+        <input type="range" id="eqvr" class="slider" min="0" max="1" step="0.01">
+        <p id="vr-text"></p>
+      </div>
+    </div>
+    <div style="padding-top: 20px;"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="rrrs">
+          <div class="container">
+            <div class="row" id="nextvideo"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="slider-container" id="gghf">
+          <label>32Hz</label>
+          <input type="range" id="eq32" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>64Hz</label>
+          <input type="range" id="eq64" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>125Hz</label>
+          <input type="range" id="eq125" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>250Hz</label>
+          <input type="range" id="eq250" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>500Hz</label>
+          <input type="range" id="eq500" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>1000Hz</label>
+          <input type="range" id="eq1k" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>2000Hz</label>
+          <input type="range" id="eq2k" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>4000Hz</label>
+          <input type="range" id="eq4k" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>8000Hz</label>
+          <input type="range" id="eq8k" class="slider" min="-12" max="12" value="1" step="0.1">
+          <label>16000Hz</label>
+          <input type="range" id="eq16k" class="slider" min="-12" max="12" value="1" step="0.1">
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+  <script src="sweetalert.min.js"></script>
+  <script src="pl.js"></script>
+
+</body>
+</html>

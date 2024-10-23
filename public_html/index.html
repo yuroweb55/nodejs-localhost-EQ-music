@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video EQ</title>
+  <link href="bootstrap@5.0.0.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 80px;
+    }
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+    }
+    .slider {
+      margin: 10px 0;
+      width: 100%;
+    }
+    video {
+      max-width: 100%;
+    }
+    .ddds {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%
+  }
+  .hgc_icons {
+    width: 18px;
+    height: 18px
+}
+
+
+.spinner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 9px solid;
+    border-color: #fff;
+    border-right-color: #198754;
+    animation: spinner-d3wgkg 0.7s infinite linear
+}
+
+@keyframes spinner-d3wgkg {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+.spinb {
+    display: flex;
+    justify-content: center
+}
+.rrrs {
+    overflow: auto;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+.col-yta{color:#fff;background-color:#000;border:solid #999 .5px}.col-yta:hover{background-color:#333}
+
+.lloo.mobile {
+  transform: rotate(90deg);
+  text-align: center;
+}
+
+
+  </style>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+<nav id="navno" class="navbar fixed-top navbar-expand-lg navbar-light text-white bg-info" style="max-width: 100%;">
+  <div class="navbar-collapse d-flex justify-content-between align-items-center">
+    <div class="nav-item dropdown">
+      <form id="form_input_search" style="padding-left: 15px;">
+        <input id="input_search" type="search" class="form-control" placeholder="เสิร์ชข้อมูลเพลง" autocomplete="off">
+      </form>
+      <div class="dropdown-menu" id="out_search"></div>
+    </div>
+    <div style="margin-right: 15px;display: none;" id="gkprd">
+      <button class="btn btn-secondary" onclick="cs_sq()">ปิด</button>
+    </div>
+  </div>
+</nav>
+
+<div id="search-" style="display: none;">
+  <div class="fixed-top" style="z-index: 1029;padding-top: 65px;background-color: rgba(128, 128, 128, 0.664);width: 100vw;height: 100vh;">
+    <div class="rrrs">
+      <div class="container">
+        <div id="earch-txt" class="row"></div>
+      </div>
+      <div style="padding-top: 100px;"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div style="text-align: center;">
+    <video id="video" width="640" height="360" muted>
+      <source type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div style="padding-top: 20px;"></div>
+    <p id="vdo-name"></p>
+    <button id="buttonplkk" class="btn btn-success">เล่น</button>
+    <button id="govdo--new" class="btn btn-info">เล่นเพลงต่อไป</button>
+    <p id="timee"></p>
+  </div>
+  <div style="padding-top: 20px;text-align: center;">
+    <label>เสียง</label><br>
+    <input type="range" id="eqvr" class="slider" min="0" max="1" step="0.01">
+    <p id="vr-text"></p>
+  </div>
+  <div style="padding-top: 100px;"></div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="rrrs">
+        <div class="container">
+          <div class="row" id="nextvideo"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div style="padding-top: 20px;"></div>
+      <div class="slider-container">
+        <label class="lloo">32</label>
+        <input type="range" id="eq32" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">64</label>
+        <input type="range" id="eq64" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">125</label>
+        <input type="range" id="eq125" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">250</label>
+        <input type="range" id="eq250" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">500</label>
+        <input type="range" id="eq500" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">1k</label>
+        <input type="range" id="eq1k" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">2k</label>
+        <input type="range" id="eq2k" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">4k</label>
+        <input type="range" id="eq4k" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">8k</label>
+        <input type="range" id="eq8k" class="slider" min="-12" max="12" value="0" step="0.1">
+        <label class="lloo">16k</label>
+        <input type="range" id="eq16k" class="slider" min="-12" max="12" value="0" step="0.1">
+      </div>
+    </div>
+  </div>
+  <div style="padding-top: 100px;"></div>
+</div>
+  <script src="sweetalert.min.js"></script>
+  <script src="index.js"></script>
+
+
+
+</body>
+</html>
